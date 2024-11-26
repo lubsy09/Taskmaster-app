@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Task Manager</h1>
+  </header>
+
+  <main>
+    <section class="task-form">
+      <h2>Create a Task</h2>
+      <form id="taskForm">
+        <input type="text" id="title" placeholder="Task Title" required>
+        <textarea id="description" placeholder="Task Description"></textarea>
+        <select id="priority">
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+        <input type="date" id="deadline">
+        <button type="submit">Add Task</button>
+      </form>
+    </section>
+
+    <section class="task-list">
+      <h2>Your Tasks</h2>
+      <ul id="tasks"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
