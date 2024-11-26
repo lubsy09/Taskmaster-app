@@ -28,15 +28,25 @@ document.addEventListener('DOMContentLoaded', () => {
   // Add a single task to the DOM
   function addTaskToDOM(task) {
     const li = document.createElement('li');
+    li.dataset.id = task._id;
     li.innerHTML = `
       <h3>${task.title}</h3>
       <p>${task.description}</p>
       <p>Priority: ${task.priority}</p>
       <p>Deadline: ${new Date(task.deadline).toLocaleDateString()}</p>
-      <button onclick="deleteTask('${task._id}')">Delete</button>
+      <button class="delete-btn">Delete</button>
     `;
     tasksList.appendChild(li);
   }
+
+  // Event delegation for delete buttons
+  tasksList.addEventListener('click', (event) => {
+    if (event.target.classList.contains('delete-btn')) {
+      const taskElement = event.target.closest('li');
+      const taskId = taskElement.dataset.id;
+      deleteTask(taskId, taskElement);
+    }
+  });
 
   // Create a new task
   async function createTask(event) {
@@ -69,15 +79,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Delete a task
-  async function deleteTask(taskId) {
+  async function deleteTask(taskId, taskElement) {
     try {
       const response = await fetch(`${apiBaseURL}/${taskId}`, { method: 'DELETE' });
       if (!response.ok) throw new Error('Failed to delete task');
 
       // Remove the task from DOM
-      const taskElement = document.querySelector(`li[data-id="${taskId}"]`);
-      if (taskElement) taskElement.remove();
-
+      taskElement.remove();
       alert('Task deleted successfully!');
     } catch (err) {
       console.error('Error deleting task:', err);
