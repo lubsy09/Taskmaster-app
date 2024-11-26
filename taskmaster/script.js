@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   // ===== VARIABLES =====
   const taskForm = document.getElementById('taskForm');
+  const searchBar = document.getElementById('searchBar');
   const tasksList = document.getElementById('tasks');
   const apiBaseURL = 'http://localhost:5000/api/tasks';
 
@@ -93,8 +94,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+// Function to filter tasks based on the search input
+function filterTasks(event) {
+  const searchText = event.target.value.toLowerCase();
+
+  // Loop through all tasks and display only those that match the search
+  const tasks = tasksList.querySelectorAll('li');
+  tasks.forEach(task => {
+    const title = task.querySelector('h3').textContent.toLowerCase();
+    if (title.includes(searchText)) {
+      task.style.display = ''; // Show matching tasks
+    } else {
+      task.style.display = 'none'; // Hide non-matching tasks
+    }
+  });
+}
+
   // ===== EVENT LISTENERS =====
   taskForm.addEventListener('submit', createTask);
+
+  // Add event listener to the search bar
+  searchBar.addEventListener('input', filterTasks);
+
 
   // ===== INITIAL FETCH =====
   fetchTasks(); // Load tasks when the page is loaded

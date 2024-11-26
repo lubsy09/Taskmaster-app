@@ -14,13 +14,12 @@ router.post('/', async (req, res) => {
   }
 });
 
+// Filtering tasks route
 router.get('/filter', async (req, res) => {
   try {
     // console.log(req.query)
     const { priority, deadline, userId } = req.query;
     
-    
-
     const filter = {};
     if (priority) filter.priority = priority;
     if (deadline) filter.deadline = { $lte: new Date(deadline) };
@@ -33,7 +32,7 @@ router.get('/filter', async (req, res) => {
   }
 });
 
-// Search tasks by title or description
+// Search tasks by title
 router.get('/search', async (req, res) => {
   try {
     // console.log(req.query);
@@ -56,17 +55,6 @@ router.get('/search', async (req, res) => {
   }
 });
     
-
-// When Expecting an array of tasks
-// router.post('/', async (req, res) => {
-//   try {
-//     const tasks = req.body; // 
-//     const createdTasks = await Task.insertMany(tasks); // Insert all tasks into the database
-//     res.status(201).json({ message: 'Tasks created', tasks: createdTasks });
-//   } catch (err) {
-//     res.status(500).json({ message: 'Error creating tasks', error: err.message });
-//   }
-// });
 
 // Get all tasks for a user
 router.get('/:userId', async (req, res) => {
@@ -91,8 +79,8 @@ router.get('/tasks/:id', async (req, res) => {
 // Update a task
 router.put('tasks/:id', async (req, res) => {
   try {
-    const { id } = req.params; // Get the task ID from the route parameter
-    const updates = req.body; // Data to update (e.g., title, description, etc.)
+    const { id } = req.params;
+    const updates = req.body; 
     
     const updatedTask = await Task.findByIdAndUpdate(id, updates, { new: true });
     if (!updatedTask) return res.status(404).json({ message: 'Task not found' });
@@ -116,11 +104,6 @@ router.delete('tasks/:id', async (req, res) => {
     res.status(500).json({ message: 'Error deleting task', error: err.message });
   }
 });
-
-// Filter tasks by priority or due date
-// Filtering tasks route
-
-
 
 
 router.post('/', taskController.createTask);
