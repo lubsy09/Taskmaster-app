@@ -80,17 +80,22 @@ body {
   color: #4a5568;
 }
 
-.task-list button {
-  margin-top: 0.5rem;
+.delete-btn {
   padding: 0.5rem 1rem;
   background-color: #e53e3e;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
-.task-list button:hover {
+.delete-btn:hover {
   background-color: #c53030;
+  transform: scale(1.05);
+}
+
+.delete-btn:active {
+  background-color: #9b2c2c;
+  transform: scale(0.95);
 }
