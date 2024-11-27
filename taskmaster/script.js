@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const description = document.getElementById('description').value;
     const priority = document.getElementById('priority').value;
     const deadline = document.getElementById('deadline').value;
-    const userId = "64cdb8914f9c4e3043e3b123"; // Example userId (replace dynamically if needed)
+    const userId = "64cdb8914f9c4e3043e3b123"; 
 
     try {
       const response = await fetch(apiBaseURL, {
