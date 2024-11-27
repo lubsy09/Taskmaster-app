@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const filterDeadline = document.getElementById('filterDeadline');
   const resetFiltersButton = document.getElementById('resetFilters');
   const feedbackMessage = document.getElementById('feedbackMessage');
+  const toggleFormButton = document.getElementById('toggleFormButton');
+  const taskFormContainer = document.getElementById('taskFormContainer');
   const apiBaseURL = 'http://localhost:5000/api/tasks';
   let allTasks = []; // Store all tasks for filtering and searching
 
@@ -165,6 +167,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Handle reset filters button
   resetFiltersButton.addEventListener('click', resetFilters);
+
+  // Toggle visibility of the form
+  toggleFormButton.addEventListener('click', () => {
+  taskFormContainer.classList.toggle('hidden'); // Show/Hide the form
+
+  // Change button text based on visibility
+    if (taskFormContainer.classList.contains('hidden')) {
+      toggleFormButton.textContent = 'Create Task';
+    } else {
+      toggleFormButton.textContent = 'Hide Form';
+    }
+  });
 
   // ===== INITIAL LOAD =====
 

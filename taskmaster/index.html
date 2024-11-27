@@ -12,19 +12,54 @@
   </header>
 
   <main>
-    <section class="task-form">
-      <h2>Create a Task</h2>
-      <form id="taskForm">
-        <input type="text" id="title" placeholder="Task Title" required>
-        <textarea id="description" placeholder="Task Description"></textarea>
-        <select id="priority">
-          <option value="low">Low</option>
-          <option value="medium">Medium</option>
-          <option value="high">High</option>
-        </select>
-        <input type="date" id="deadline">
-        <button type="submit">Add Task</button>
-      </form>
+    <section class="task-form-container">
+      <button id="toggleFormButton">Create Task</button> <!-- Toggle Button -->
+      
+      <section class="task-form hidden" id="taskFormContainer">
+        <h2>Create a Task</h2>
+        <form id="taskForm">
+          <label for="title">Task Title</label>
+          <input 
+            type="text" 
+            id="title" 
+            name="title" 
+            placeholder="Enter the task title" 
+            required 
+            aria-label="Task Title"
+          >
+    
+          <label for="description">Task Description</label>
+          <textarea 
+            id="description" 
+            name="description" 
+            placeholder="Enter a brief description of the task" 
+            aria-label="Task Description"
+          ></textarea>
+    
+          <label for="priority">Priority</label>
+          <select 
+            id="priority" 
+            name="priority" 
+            aria-label="Task Priority" 
+            title="Task Priority"
+          >
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+    
+          <label for="deadline">Deadline</label>
+          <input 
+            type="date" 
+            id="deadline" 
+            name="deadline" 
+            aria-label="Task Deadline" 
+            title="Task Deadline"
+          >
+    
+          <button type="submit">Add Task</button>
+        </form>
+      </section>
     </section>
 
     <section>

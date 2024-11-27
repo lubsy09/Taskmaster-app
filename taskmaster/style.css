@@ -1,4 +1,4 @@
-/* General Styling */
+/* General Styling
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -17,7 +17,7 @@ body {
 }
 
 /* Task Form Styling */
-.task-form h2 {
+/* .task-form h2 {
   text-align: center;
   color: #5a67d8;
 }
@@ -48,6 +48,65 @@ body {
 
 .task-form button:hover {
   background-color: #434190;
+} */ */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+}
+
+header {
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+main {
+  margin: 2rem auto;
+  max-width: 600px;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.task-form {
+  margin-bottom: 2rem;
+}
+
+.task-form input, .task-form textarea, .task-form select, .task-form button {
+  width: 95%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.task-form button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.task-form button:hover {
+  background-color: #0056b3;
+}
+
+.task-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.task-list li {
+  background: #f9f9f9;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
 /* Task List Styling */
@@ -168,4 +227,16 @@ body {
 
 .fade-out {
   transition: opacity 0.5s ease-in-out; /* Fade-out effect */
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.task-form {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
 }
