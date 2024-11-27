@@ -28,8 +28,26 @@
     </section>
 
     <section>
-      <input type="text" id="searchBar" placeholder="Search tasks by keyword...">
+      <input type="text" id="searchBar" placeholder="Search tasks by title...">
     </section>
+
+    <section class="task-filters">
+      <label for="filterPriority">Filter by Priority</label>
+      <select id="filterPriority">
+        <option value="">All Priorities</option>
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+
+      <label for="filterDeadline">Filter by Deadline</label>
+      <input type="date" id="filterDeadline" />
+
+      <button id="resetFilters">Reset Filters</button>
+
+      <div id="feedbackMessage" class="hidden"></div>
+    </section>
+
 
     <section class="task-list">
       <h2>Your Tasks</h2>
