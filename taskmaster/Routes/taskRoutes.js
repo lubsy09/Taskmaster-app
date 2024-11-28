@@ -5,37 +5,37 @@ const router = express.Router();
 const { check, validationResult } = require('express-validator');
 
 // Create a new task
-// router.post('/', async (req, res) => {
-//   try {
-//     const { title, description, priority, deadline, userId } = req.body;
-//     const task = await Task.create({ title, description, priority, deadline, userId });
-//     res.status(201).json({ message: 'Task created', task });
-//   } catch (err) {
-//     res.status(500).json({ message: 'Error creating task', error: err.message });
-//   }
-// });
-
-
-
-router.post(
-  '/tasks',
-  [
-    check('title', 'Title is required').notEmpty(),
-    check('priority', 'Priority must be low, medium, or high').isIn(['low', 'medium', 'high']),
-  ],
-  async (req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ error: errors.array() });
-    }
-    try {
-      const newTask = await Task.create(req.body);
-      res.status(201).json({ message: 'Task created', task: newTask });
-    } catch (err) {
-      res.status(500).json({ error: 'Server error' });
-    }
+router.post('/', async (req, res) => {
+  try {
+    const { title, description, priority, deadline, userId } = req.body;
+    const task = await Task.create({ title, description, priority, deadline, userId });
+    res.status(201).json({ message: 'Task created', task });
+  } catch (err) {
+    res.status(500).json({ message: 'Error creating task', error: err.message });
   }
-);
+});
+
+
+
+// router.post(
+//   '/tasks',
+//   [
+//     check('title', 'Title is required').notEmpty(),
+//     check('priority', 'Priority must be low, medium, or high').isIn(['low', 'medium', 'high']),
+//   ],
+//   async (req, res) => {
+//     const errors = validationResult(req);
+//     if (!errors.isEmpty()) {
+//       return res.status(400).json({ error: errors.array() });
+//     }
+//     try {
+//       const newTask = await Task.create(req.body);
+//       res.status(201).json({ message: 'Task created', task: newTask });
+//     } catch (err) {
+//       res.status(500).json({ error: 'Server error' });
+//     }
+//   }
+// );
 
 // Filtering tasks route
 router.get('/filter', async (req, res) => {
