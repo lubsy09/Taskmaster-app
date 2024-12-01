@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 
 const authRoutes = require('./Routes/authRoutes.js');
-const taskRoutes = require('./Routes/taskRoutes');
+const taskRoutes = require('./Routes/taskRoutes.js');
 
 const app = express();
 
