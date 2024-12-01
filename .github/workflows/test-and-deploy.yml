@@ -1,0 +1,38 @@
+name: Test and Deploy
+
+on:
+  push:
+    branches:
+      - main
+      - test
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run Unit Tests
+      run: npm test
+
+  deploy:
+    needs: test # Ensures tests pass before deployment
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Deploy to Environment
+      env:
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      run: |
+        echo "Deploying to ${{ github.ref_name }} environment"
