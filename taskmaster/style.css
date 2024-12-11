@@ -58,17 +58,21 @@ body {
 }
 
 header {
-  background-color: #007bff;
-  color: white;
+  background-color: bisque;
+  color: black;
   text-align: center;
   padding: 1rem 0;
+  display: flex;
+  gap: 20px; 
+  font-size: 30px;
+  margin: 0;
 }
 
 main {
   margin: 2rem auto;
   max-width: 600px;
   padding: 1rem;
-  background: white;
+  background: bisque;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -196,7 +200,7 @@ main {
   position: fixed;
   top: 20px;
   right: 20px;
-  background-color: #4caf50;
+  background-color: #d32f2f;
   color: white;
   padding: 10px 20px;
   border-radius: 5px;
@@ -227,4 +231,11 @@ main {
   opacity: 1;
   visibility: visible;
   transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.logo {
+  width: 150px; 
+  border-radius: 75px;
+  height: auto;
+  margin-left: 10px;
 }
