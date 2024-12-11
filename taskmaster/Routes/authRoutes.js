@@ -20,23 +20,6 @@ router.post('/register', async (req, res) => {
   }
 });
 
-// Register(multiple users)
-// router.post('/register', async (req, res) => {
-//   try {
-//     const users = req.body; // Expecting an array of users
-//     const hashedUsers = await Promise.all(
-//       users.map(async (user) => {
-//         const hashedPassword = await bcrypt.hash(user.password, 10);
-//         return { ...user, password: hashedPassword };
-//       })
-//     );
-//     const createdUsers = await User.insertMany(hashedUsers); // Insert all users into the database
-//     res.status(201).json({ message: 'Users registered', createdUsers });
-//   } catch (err) {
-//     res.status(500).json({ message: 'Error registering users', error: err.message });
-//   }
-//   console.log(req.body);
-// });
 // Login
 router.post('/login', async (req, res) => {
   try {
