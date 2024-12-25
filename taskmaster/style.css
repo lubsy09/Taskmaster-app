@@ -11,7 +11,7 @@ header {
   text-align: center;
   padding: 1rem 0;
   display: flex;
-  gap: 20px; 
+  gap: 100px; 
   font-size: 30px;
   margin: 0;
 }
@@ -185,7 +185,7 @@ main {
   width: 150px; 
   border-radius: 75px;
   height: auto;
-  margin-left: 10px;
+  margin-left: 20px;
 }
 /* Home Styling */
 .auth-buttons button {
